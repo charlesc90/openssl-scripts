@@ -21,13 +21,20 @@ function rsagen() {
     pause
 }
 
+function dhpgen() {
+    read -p "Please enter a filepath for output" dhout
+    read -p "Please enter a size[2048]: " dhbits
+    openssl dhparam -rand ${urand} -outform PEM -out ${dhout} -2 ${dhbits}
+}
+
 function menu() {
     echo " "
     echo " +=======================+ "
     echo " | MENU                  | "
     echo " | 1 setup               | "
     echo " | 2 gen rsa p. key      | "
-    echo " | 3 exit                | "
+    echo " | 3 gen dh params       | "
+    echo " | 4 exit                | "
     echo " +=======================+ "
     echo " "
 }
@@ -38,7 +45,8 @@ function choice() {
     case ${mchoice} in
         [1]) setup ;;
         [2]) rsagen ;;
-        [3]) exit 0 ;;
+        [3]) dhpgen ;;
+        [4]) exit 0 ;;
           *) echo -e "Error..." && sleep 3
     esac
 }
