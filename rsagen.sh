@@ -1,10 +1,15 @@
 #!/bin/bash
 
+# This script provides a ncurses-based interface for openssl.
+
+# This checks for data from the RNG in the user's home directory. If there
+# is no RNG data, use /dev/urandom. 
 if [ -e $HOME/.rnd ]; then
     urand=$HOME/.rnd
 else
     urand=/dev/urandom
 fi
+
 
 function pause() {
     read -p "Press [ENTER] to continue... " fackEnterKey
