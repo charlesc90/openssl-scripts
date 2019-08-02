@@ -3,11 +3,11 @@
 # This script provides a ncurses-based interface for openssl.
 
 # This checks for data from the RNG in the user's home directory. If there
-# is no RNG data, use /dev/urandom. 
+# is no RNG data, use random data from /dev/random. 
 if [ -e $HOME/.rnd ]; then
     urand=$HOME/.rnd
 else
-    urand=/dev/urandom
+    urand=/home/charlesc/random.dat
 fi
 
 
