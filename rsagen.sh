@@ -10,7 +10,6 @@ else
     urand=/home/charlesc/random.dat
 fi
 
-
 function pause() {
     read -p "Press [ENTER] to continue... " fackEnterKey
 }
